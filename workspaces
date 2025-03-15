@@ -1,0 +1,18 @@
+provider "aws" {
+  region = "us-east-1"
+}
+
+variable "ami" {
+  description = "This is AMI for the instance"
+  default     = "ami-12345678"  # Replace with a valid AMI ID
+}
+
+variable "instance_type" {
+  description = "This is the instance type, for workspace: t2.micro"
+  default     = "t2.micro"
+}
+
+resource "aws_instance" "workspaces" {
+  ami           = var.ami
+  instance_type = var.instance_type
+}
